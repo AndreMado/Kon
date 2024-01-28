@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./build/styles.css" />
+
+    <title class="text-gray-600">KON!</title>
+  </head>
+  <body class="bg-primary font-Play text-secondary font-bold">
+    <div id="container">
+      <div
+        class="tittle flex flex-col items-center justify-center bg-secondary lg:hidden"
+      >
+        <h1 class="text-6xl font-bold mt-5 text-terciary">K O N!</h1>
+        <p class="text-terciary pb-5">desing by AndreMaldo</p>
+      </div>
+
+      <!-- Choose section -->
+      <section
+        class="flex flex-col items-center justify-center"
+        id="Choose your pet"
+      >
+        <h2 class="text-2xl text-four pl-4 mt-4 mb-4">Pick your pet</h2>
+        <div
+          id="cards-container"
+          class="grid grid-cols-2 gap-7 m-7 md:grid-cols-3 md:gap-24"
+        >
+          <input
+            class="hidden bg-primary"
+            type="radio"
+            name="PETS"
+            id="${pet.name}"
+          />
+        </div>
+        <button
+          class="bg-secondary text-four px-10 py-5 rounded-lg mt-5 shadow-sm transition-all duration-500 ease-in-out hover:bg-terciary hover:text-white transform hover:-translate-y-1 hover:scale-110"
+          id="pet-selector"
+        >
+          Select
+        </button>
+      </section>
+
+      <!-- Canvas section-->
+
+      <section id="map-section" class="flex-col items-center justify-center">
+        <h1>Explore the world with your pet</h1>
+        <canvas
+          id="map"
+          class="border-solid border-2 border-four bg-secondary"
+        ></canvas>
+        <button onmouseup="keyIsNotPress()" onmousedown="movePetX()">
+          Move right
+        </button>
+        <button onmouseup="keyIsNotPress()" onmousedown="movePetNX()">
+          Move left
+        </button>
+        <button onmouseup="keyIsNotPress()" onmousedown="movePetY()">
+          Move up
+        </button>
+        <button onmouseup="keyIsNotPress()" onmousedown="movePetNY()">
+          Move down
+        </button>
+      </section>
+
+      <!-- Attack section-->
+      <section
+        class="w-full h-auto flex flex-col justify-center items-center mb-10"
+        id="sectionAttack"
+      >
+        <h3
+          class="text-2xl text-four pl-4 mt-4 mb-4 flex flex-col justify-center items-center"
+        >
+          Attack to win!
+        </h3>
+
+        <div class="flex justify-around items-center mt-10">
+          <p
+            class="w-40 h-64 bg-terciary text-primary rounded-lg p-4 flex flex-col justify-center items-center"
+            id="myPetImage"
+          >
+            <span>Your pet</span>
+            <span id="petPLAYER"></span>
+            <span>VICTORYS</span>
+            <span id="spanPlayerHeathl" class="text-6xl">0</span>
+          </p>
+          <p
+            class="w-40 h-64 bg-terciary text-primary rounded-lg p-4 flex flex-col justify-center items-center"
+            id="enemyPet"
+          >
+            <span>Enemy's Pet</span>
+            <span id="petenemy"></span>
+            <span>VICTORYS</span>
+            <span id="enemyhealth" class="text-6xl">0</span>
+          </p>
+        </div>
+        <section
+          id="mails"
+          class="grid grid-cols-3 items-center justify-center place-items-center gap-4"
+        >
+          <div
+            id="yourAttack"
+            class="w-32 m-2 h-auto bg-secondary flex flex-col items-center justify-center text-four rounded-xl"
+          >
+            <p class="flex justify-center items-center rounded-xl">
+              YOUR ATTACK
+            </p>
+          </div>
+          <div
+            id="battleResult"
+            class="w-32 m-2 h-auto bg-secondary flex flex-col text-four rounded-xl"
+          >
+            <p class="flex justify-center items-center rounded-xl">
+              BATTLE RESULT
+            </p>
+          </div>
+          <div
+            id="enemyAttack"
+            class="w-32 m-2 h-auto bg-secondary flex flex-col text-four rounded-xl"
+          >
+            <p class="flex justify-center items-center rounded-xl">
+              ENEMY ATTACK
+            </p>
+          </div>
+        </section>
+        <section class="w-full flex flex-col items-center justify-center mt-5">
+          <div id="Restart"></div>
+          <button
+            id="restart"
+            class="bg-terciary text-primary px-10 py-5 rounded-lg mt-5 shadow-sm transition-all duration-500 ease-in-out hover:bg-terciary hover:text-white transform hover:-translate-y-1 hover:scale-110"
+          >
+            Restart
+          </button>
+          <div
+            class="w-full flex justify-around items-center mt-5 text-primary"
+            id="buttomAttack"
+          ></div>
+        </section>
+      </section>
+    </div>
+    <script src="./js/class1.js"></script>
+  </body>
+</html>
